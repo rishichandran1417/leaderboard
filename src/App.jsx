@@ -5,22 +5,24 @@ const CSV_URL =
 
 export default function App() {
   const [data, setData] = useState([]);
-  
 
   useEffect(() => {
     fetch(CSV_URL)
       .then((res) => res.text())
       .then((text) => {
-        const rows = text.trim().split("\n").slice(1); 
+        const rows = text.trim().split("\n").slice(1);
         const formatted = rows
           .map((row) => {
-            const [name, score] = row.split(",");
+            const [name, score, college, branch] = row.split(",");
+            if (!name || isNaN(Number(score))) return null;
             return {
               name: name.trim(),
               score: Number(score),
+              college: college?.trim() || "N/A",
+              branch: branch?.trim() || "N/A",
             };
           })
-          .filter((entry) => entry.name && !isNaN(entry.score));
+          .filter(Boolean);
 
         formatted.sort((a, b) => b.score - a.score);
         setData(formatted);
@@ -30,24 +32,33 @@ export default function App() {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h2 className=" ">📊 Leaderboard</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
-        {data.length === 0 && <p>Loading...</p>}
-        {data.map((item, index) => (
-          <li
+      <h2 style={{ marginBottom: "20px" }}>📊 Leaderboard</h2>
+      {data.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+        data.map((item, index) => (
+          <div
             key={index}
             style={{
-              background: "#e0f7fa",
-              margin: "10px 0",
-              padding: "10px",
+              backgroundColor: "#e0f7fa",
+              padding: "15px",
+              marginBottom: "10px",
               borderRadius: "8px",
-              fontSize: "16px",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+              display: "grid",
+              gridTemplateColumns: "60px 150px 150px 150px 80px",
             }}
           >
-            <strong>#{index + 1}</strong> - {item.name} - {item.score}
-          </li>
-        ))}
-      </ul>
+            <p style={{ marginRight: "20px", fontWeight: "bold" }}>
+              <strong>#{index + 1}</strong>
+            </p>
+            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.name}</p>
+            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.college}</p>
+            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.branch}</p>
+            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.score}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 }
