@@ -39,12 +39,16 @@
   border-radius: 12px;
   text-align: center;
   position: relative;
+   height: 300px;
+   width: auto;
   
 }
 
-.medal-1 { background: #fff6c5; ;}
 .medal-2 { background: #dce4ff; }
+.medal-1 { background: #fff6c5; ;}
+
 .medal-3 { background: #ffd5c5; }
+
 
 .medal-card .avatar {
   font-size: 32px;
@@ -156,12 +160,63 @@
 
 
 @media (max-width: 500px) {
+  .leaderboard-container {
+    width: 90vw;
+    margin: 40px auto;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .leaderboard-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
   .top-three {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
+  }
+
+  .medal-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .medal-card .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+
+  .medal-card .name {
+    font-size: 16px;
+  }
+
+  .medal-card .score {
+    font-size: 14px;
+  }
+
+  .medal-card .medal {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .others {
+    gap: 10px;
   }
 
   .entry {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+
+  .info {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
@@ -172,9 +227,30 @@
   }
 
   .score-pill {
+    font-size: 12px;
+    padding: 4px 10px;
     margin-left: 0;
   }
+
+  .card {
+    min-width: 100%;
+    font-size: 16px;
+  }
+
+  .rank-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .row span {
+    min-width: unset;
+    flex: unset;
+    text-align: left;
+  }
 }
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
