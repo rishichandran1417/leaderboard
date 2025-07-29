@@ -32,7 +32,30 @@ export default function App() {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h2 style={{ marginBottom: "20px" }}>📊 Leaderboard</h2>
+      <h2 style={{ marginBottom: "20px", fontWeight: "bold" }}>📊 Leaderboard</h2>
+
+      {/* Header Row */}
+      <div
+        style={{
+          backgroundColor: "#00796b",
+          color: "white",
+          padding: "15px",
+          borderRadius: "8px",
+          display: "grid",
+          gridTemplateColumns: "0.5fr 2fr 2fr 2fr 1fr",
+          marginBottom: "10px",
+          fontWeight: "bold",
+        }}
+      >
+        <p></p>
+        <p>Name</p>
+        <p>College</p>
+        <p>Branch</p>
+        
+        <p>Score</p>
+      </div>
+
+      {/* Data Rows */}
       {data.length === 0 ? (
         <p>Loading...</p>
       ) : (
@@ -40,22 +63,24 @@ export default function App() {
           <div
             key={index}
             style={{
-              backgroundColor: "#e0f7fa",
+
               padding: "15px",
               marginBottom: "10px",
               borderRadius: "8px",
+              border: "#0732EF 2px solid",
               boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
               display: "grid",
-              gridTemplateColumns: "60px 150px 150px 150px 80px",
+              gridTemplateColumns: "0.5fr 2fr 2fr 2fr 1fr",
+               gap: "10px",
+            alignItems: "center",
+            fontWeight: "bold",
             }}
           >
-            <p style={{ marginRight: "20px", fontWeight: "bold" }}>
-              <strong>#{index + 1}</strong>
-            </p>
-            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.name}</p>
-            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.college}</p>
-            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.branch}</p>
-            <p style={{ marginRight: "20px" ,fontWeight: "bold",fontSize: "16px"}}><strong></strong> {item.score}</p>
+            <p><strong>{index + 1}</strong></p>
+            <p>{item.name}</p>
+            <p>{item.branch}</p>
+            <p>{item.college}</p>
+            <p>{item.score}</p>
           </div>
         ))
       )}
