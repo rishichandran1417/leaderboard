@@ -1,10 +1,11 @@
 import React from "react";
+import "./navbar.css"; // Make sure this path is correct
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-4 py-3 bg-white shadow">
+    <nav className="navbar">
       <a href="https://www.iedccet.com/">
-        <img src="/iedc_logo.png" alt="IEDC Logo" className="w-20 h-auto" />
+      <img src="/iedc_logo.png" alt="IEDC Logo"  className="logo" />
       </a>
     </nav>
   );

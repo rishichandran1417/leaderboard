@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./Leaderboard.css";
 
 const CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRC6v9A625r9zDHwIlvifUg1qtLtPgMREyxx1yfny6i36UulsqtIBgejbhaxCZ3Y0jTcAWM4L4yItze/pub?output=csv";
 
-export default function App() {
+export default function Leaderboard() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -14,76 +15,57 @@ export default function App() {
         const formatted = rows
           .map((row) => {
             const [name, score, college, branch] = row.split(",");
-            if (!name || isNaN(Number(score))) return null;
             return {
-              name: name.trim(),
+              name: name?.trim(),
               score: Number(score),
-              college: college?.trim() || "N/A",
-              branch: branch?.trim() || "N/A",
+              college: college?.trim(),
+              branch: branch?.trim(),
             };
           })
-          .filter(Boolean);
+          .filter(Boolean)
+          .sort((a, b) => b.score - a.score);
 
-        formatted.sort((a, b) => b.score - a.score);
         setData(formatted);
-      })
-      .catch((err) => console.error("CSV load error:", err));
+      });
   }, []);
 
-  return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h2 style={{ marginBottom: "20px", fontWeight: "bold" }}>📊 Leaderboard</h2>
+  const top3 = data.slice(0, 3);
+  const others = data.slice(3);
 
-      {/* Header Row */}
-      <div
-        style={{
-          backgroundColor: "#00796b",
-          color: "white",
-          padding: "15px",
-          borderRadius: "8px",
-          display: "grid",
-          gridTemplateColumns: "0.5fr 2fr 2fr 2fr 1fr",
-          marginBottom: "10px",
-          fontWeight: "bold",
-        }}
-      >
-        <p></p>
-        <p>Name</p>
-        <p>College</p>
-        <p>Branch</p>
-        
-        <p>Score</p>
+  return (
+    <div className="leaderboard-container">
+      <h2>🏆 LEADERBOARD</h2>
+
+      <div className="top-three">
+        {top3.map((player, idx) => (
+          <div key={idx} className={`medal-card medal-${idx + 1}`}>
+            <div className="avatar">👤</div>
+            <p className="name">{player.name}</p>
+            <p className="score">{player.score}</p>
+            <p className="sub">{player.college}</p>
+            <p className="sub">{player.branch}</p>
+            <span className="medal">{idx + 1}</span>
+          </div>
+        ))}
       </div>
 
-      {/* Data Rows */}
-      {data.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-        data.map((item, index) => (
-          <div
-            key={index}
-            style={{
-
-              padding: "15px",
-              marginBottom: "10px",
-              borderRadius: "8px",
-              border: "#0732EF 2px solid",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-              display: "grid",
-              gridTemplateColumns: "0.5fr 2fr 2fr 2fr 1fr",
-               gap: "10px",
-            alignItems: "center",
-            fontWeight: "bold",
-            }}
-          >
-            <p><strong>{index + 1}</strong></p>
-            <p>{item.name}</p>
-            <p>{item.branch}</p>
-            <p>{item.college}</p>
-            <p>{item.score}</p>
+      <div className="others">
+        {others.map((player, idx) => (
+          <div key={idx} className="entry">
+            <div className="entry-left">
+              <span className="rank">{idx + 4}</span>
+             
+              <div className="info">
+                 <span className="icon">👤</span>
+               <div> <p className="name">{player.name}</p> </div>
+              <div className="college">  <p className="sub">{player.college}  </p> </div>
+                <div className="branch"> <p className="sub">{player.branch}</p> </div>
+              </div>
+            </div>
+            <span className="score-pill">{player.score}</span>
           </div>
-        ))
-      )}
+        ))}
+      </div>
     </div>
   );
 }
