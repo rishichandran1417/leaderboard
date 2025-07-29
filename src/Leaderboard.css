@@ -129,7 +129,7 @@
 .entry-left {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   flex: 1;
  
 }
@@ -164,7 +164,7 @@
     width: 90vw;
     margin: 40px auto;
     padding: 16px;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .leaderboard-container,
@@ -181,9 +181,13 @@
   }
 
   .top-three {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+     display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 20px;
   }
 
   .medal-card {
@@ -199,7 +203,7 @@
   }
 
   .medal-card .name {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .medal-card .score {
@@ -221,7 +225,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px 14px;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .info {
@@ -232,6 +236,7 @@
 
   .entry-left {
     width: 100%;
+    align-items: center;
   }
 
   .score-pill {
