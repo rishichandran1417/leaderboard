@@ -36,18 +36,44 @@ export default function Leaderboard() {
     <div className="leaderboard-container">
       <h2>🏆 LEADERBOARD</h2>
 
-      <div className="top-three">
-        {top3.map((player, idx) => (
-          <div key={idx} className={`medal-card medal-${idx + 1}`}>
-            <div className="avatar">👤</div>
-            <p className="name">{player.name}</p>
-            <p className="score">{player.score}</p>
-            <p className="sub">{player.college}</p>
-            <p className="sub">{player.branch}</p>
-            <span className="medal">{idx + 1}</span>
-          </div>
-        ))}
-      </div>
+     <div className="top-three">
+  {/* 2nd place (left) */}
+  {top3[1] && (
+    <div className="medal-card medal-2">
+      <div className="avatar">👤</div>
+      <p className="name">{top3[1].name}</p>
+      <p className="score">{top3[1].score}</p>
+      <p className="sub">{top3[1].college}</p>
+      <p className="sub">{top3[1].branch}</p>
+      <span className="medal">2</span>
+    </div>
+  )}
+
+  {/* 1st place (center) */}
+  {top3[0] && (
+    <div className="medal-card medal-1">
+      <div className="avatar">👤</div>
+      <p className="name">{top3[0].name}</p>
+      <p className="score">{top3[0].score}</p>
+      <p className="sub">{top3[0].college}</p>
+      <p className="sub">{top3[0].branch}</p>
+      <span className="medal">1</span>
+    </div>
+  )}
+
+  {/* 3rd place (right) */}
+  {top3[2] && (
+    <div className="medal-card medal-3">
+      <div className="avatar">👤</div>
+      <p className="name">{top3[2].name}</p>
+      <p className="score">{top3[2].score}</p>
+      <p className="sub">{top3[2].college}</p>
+      <p className="sub">{top3[2].branch}</p>
+      <span className="medal">3</span>
+    </div>
+  )}
+</div>
+
 
       <div className="others">
         {others.map((player, idx) => (
