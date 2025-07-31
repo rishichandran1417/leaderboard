@@ -45,7 +45,9 @@
 }
 
 .medal-2 { background: #dce4ff; }
-.medal-1 { background: #fff6c5; ;}
+.medal-1 { background: #fff6c5; 
+   height: 340px;         
+  transform: translateY(-15px);;}
 
 .medal-3 { background: #ffd5c5; }
 
