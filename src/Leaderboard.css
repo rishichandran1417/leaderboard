@@ -1,391 +1,49 @@
-
 .leaderboard-container {
-  width: 50vw;
-
- margin: 5px auto 0 auto;
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
   padding: 20px;
-  font-size: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", sans-serif;
 }
 
-
-.leaderboard-container h2 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #3d2c8d;
-  margin-bottom: 25px;
-  font-weight: bold;
-}
-
-
-.top-three {
+.toggle-buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 30px;
-  gap: 10px;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.medal-card {
-  flex: 1;
-  background: #f2f2f2;
-  padding: 12px;
-  border-radius: 12px;
-  text-align: center;
-  position: relative;
-   height: 300px;
-   width: auto;
-  
-}
-
-.medal-2 { background: #dce4ff; }
-.medal-1 { background: #fff6c5; 
-   height: 340px;         
-  transform: translateY(-15px);;}
-
-.medal-3 { background: #ffd5c5; }
-
-
-.medal-card .avatar {
-  font-size: 32px;
-  background: #ccc;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  line-height: 50px;
-  margin: 0 auto 6px;
-}
-
-.medal-card .name {
-  font-weight: bold;
-  color: #333;
-  font-size: 20px;
-  font-weight: bold;
-  f
-}
-
-.medal-card .score {
-  color: black;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.medal-card .medal {
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: gold;
-  color: #000;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-
-.others {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  
-}
-
-.entry {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  padding: 12px 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  flex-wrap: wrap;
-  font-weight: bold;
-  font-size: 20px;
-  border: 2px solid blue;
-  background-color:  #e9f9ec;
-
-}
-.info {
-  display: flex;
-  justify-content: space-evenly; 
-  align-items: center;            
-  width: 100%;
-  flex-wrap: wrap;                
-  gap: 8px;                      
-  padding: 10px;
- 
-}
-
-
-
-.entry-left {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex: 1;
- 
-}
-
-.entry-top {
-  font-weight: 600;
-  color: #333;
-  display: flex;
-  
-  gap: 6px;
-  font-size: 14px;
-}
-
-.entry-bottom {
-  font-size: 13px;
-  color: #777;
-}
-
-.score-pill {
-  background: blue;
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-
-@media (max-width: 500px) {
-  .leaderboard-container {
-    width: 90vw;
-    margin: 40px auto;
-    padding: 16px;
-    font-size: 20px;
-  }
-
-  .leaderboard-container,
-.top-three,
-.entry,
-.info {
-  text-align: center;
-  align-items: center;
   justify-content: center;
-}
-  .leaderboard-container h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .top-three {
-     display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 30px;
-  gap: 10px;
-  font-weight: bold;
-  font-size: 20px;
-  }
-
-  .medal-1 {
-  background: #ffe066;   /* brighter gold */
-  height: 340px;         /* make 1st place card taller */
-  transform: translateY(-15px); /* visually lifted */
-}
-
-.medal-2 {
-  background: #d0d8ff;   /* light blue */
-  height: 300px;
-}
-
-.medal-3 {
-  background: #ffccc9;   /* light pink */
-  height: 300px;
-}
-
-
-  .medal-card {
-  flex: 1;
-  padding: 10px;
-  width: 160px; /* fixed width for uniformity */
-  max-width: 180px;
-}
-
-
-  .medal-card .avatar {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    line-height: 40px;
-  }
-
-  .medal-card .name {
-    font-size: 20px;
-  }
-
-  .medal-card .score {
-    font-size: 14px;
-  }
-
-  .medal-card .medal {
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .others {
-    gap: 10px;
-  }
-
-  .entry {
-    flex-direction: column;
-    align-items: center;
-    padding: 6x 10px;
-    font-size: 18px;
-     width: 90%;                 /* ↓ reduce overall width */
-     max-height: 200px; 
-    margin: 10px auto;
-  }
-
-  .info {
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-
-  .entry-left {
-    width: 100%;
-    align-items: center;
-  }
-
-  .score-pill {
-    font-size: 12px;
-    padding: 4px 10px;
-    margin-left: 0;
-  }
-
-  .card {
-     width: 80% ;
-  font-size: 14px; 
-  padding: 8px 12px; 
-  margin: 8px auto ;
-  box-sizing: border-box;
-  }
-
-  .rank-circle {
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .row span {
-    min-width: unset;
-    flex: unset;
-    text-align: left;
-  }
-}
-
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff9ec;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px;
-}
-
-.title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #3b0ca3;
-  margin-bottom: 30px;
-}
-
-.top-three {
-  display: flex;
-  justify-content: space-around;
-  gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
-.card {
-  flex: 1;
-  min-width: 200px;
-  background: #fff9ec;
-  padding: 16px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: relative;
-  border: blue 2px solid    ;
-}
-
-.card:nth-child(1) {
-  background-color: #fff8cc;
-}
-
-.card:nth-child(2) {
-  background-color: #e8e9ff;
-}
-
-.card:nth-child(3) {
-  background-color: #ffe2e2;
-}
-
-.rank-circle {
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffd700;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.list {
-  margin-top: 20px;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 14px 20px;
-  margin-bottom: 10px;
+.toggle-buttons button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
   border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  flex-wrap: wrap;
+  background-color: #ddd;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
 }
 
-.row span {
-  flex: 1;
-  min-width: 120px;
+.toggle-buttons button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
   text-align: center;
 }
 
-.score-badge {
-  background: blue;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 12px;
+thead {
+  background-color: #f4f4f4;
   font-weight: bold;
 }
- 
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
