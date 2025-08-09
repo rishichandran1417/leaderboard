@@ -47,3 +47,46 @@ td {
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
+/* Media query for tablets and smaller screens */
+@media (max-width: 768px) {
+    .leaderboard-container {
+        padding: 15px; /* Decrease padding for smaller screens */
+    }
+
+    .toggle-buttons {
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    }
+
+    .toggle-buttons button {
+        padding: 8px 15px; /* Smaller button padding */
+        margin: 5px; /* Add some margin for wrapped buttons */
+    }
+
+    th, td {
+        padding: 8px; /* Decrease table cell padding */
+        font-size: 14px; /* Adjust font size for better fit */
+    }
+}
+
+/* Media query for mobile phones */
+@media (max-width: 480px) {
+    .leaderboard-container {
+        margin: 15px auto;
+        border-radius: 10px;
+    }
+
+    .toggle-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Add a gap between stacked buttons */
+    }
+
+    .toggle-buttons button {
+        width: 100%; /* Make buttons full width */
+        margin: 0; /* Remove horizontal margin */
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
