@@ -61,12 +61,12 @@ function StartupCard({ title, description, image="startup.png", index, link }) {
 export default function Home() {
   const Startups = [
     {
-      title: "Startuo Bootcamp",
+      title: "Startup Bootcamp",
       date: "2023-10-01",
-      image: "ideabox.jpg",
+      image: "startup.jpg",
       content:
         "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
-      link: "/ideacamp"
+      link: "/leaderboard"
     },
     {
       title: "IdeaBox ",
@@ -74,7 +74,7 @@ export default function Home() {
       image: "ideabox.jpg",
       content:
         "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
-      link: "/leaderboard"
+      link: "/ideacamp"
     },
   
    
